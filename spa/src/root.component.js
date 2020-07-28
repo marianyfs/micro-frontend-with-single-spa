@@ -4,7 +4,7 @@ export default function Root(props) {
   return (
     <section>
       {props.name} is mounted!
-      <div id="microfrontend-apps"></div>
+      <div id="micro-frontend-apps"></div>
     </section>
   );
 }

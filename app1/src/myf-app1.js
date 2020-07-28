@@ -16,7 +16,7 @@ const lifecycles = singleSpaReact({
 });
 
 function domElementGetter() {
-  let element = document.getElementById("microfrontend-apps");
+  let element = document.getElementById("micro-frontend-apps");
   if (!element) {
     element = document.createElement("div");
     element.id = "myf-app1";
