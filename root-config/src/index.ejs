@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MICRO FRONTENDS - SINGLE SPA</title>
+  <meta name="importmap-type" content="systemjs-importmap" />
+  <!--
+  <script type="systemjs-importmap"
+    src="https://host.com.br/epson.microfrontends.app/importmap.json"
+  >
+  </script>
+  -->
+  <% if (IS_LOCAL) { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
+
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.3.0/lib/system/single-spa.min.js",
+
+
+        "@myf/root-config": "//localhost:3000/myf-root-config.js",
+
+
+        "@myf/spa": "//localhost:4000/myf-spa.js",
+        "@myf/app1": "//localhost:4001/myf-app1.js",
+        "@myf/app2": "//localhost:4002/myf-app2.js",
+
+
+        "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs.min.js",
+        "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/rxjs-operators.min.js"
+      }
+    }
+  </script>
+  <% } %>
+  <script src="https://unpkg.com/zone.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.3.1/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script></head>
+<body>
+  <div id="microfrontend">
+    <div id="microfrontend-spa">
+      <div id="microfrontend-apps"></div>
+    </div>
+  </div>
+  <script>
+    System.import('@myf/root-config')
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+</html>
