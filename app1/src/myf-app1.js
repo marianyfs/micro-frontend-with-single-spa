@@ -4,25 +4,15 @@ import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 import Root from "./root.component";
 
+import { ModuleError } from "@myf/styleguide";
+
 const lifecycles = singleSpaReact({
   React,
   ReactDOM,
   rootComponent: Root,
-  domElementGetter,
-  errorBoundary(err, info, props) {
-    // Customize the root error boundary for your microfrontend here.
-    return null;
+  errorBoundary(error, info, props) {
+    return <ModuleError error={error} info={info} {...props} />;
   },
 });
-
-function domElementGetter() {
-  let element = document.getElementById("micro-frontend-apps");
-  if (!element) {
-    element = document.createElement("div");
-    element.id = "myf-app1";
-    document.body.appendChild(element);
-  }
-  return element;
-}
 
 export const { bootstrap, mount, unmount } = lifecycles;
