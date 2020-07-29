@@ -43,7 +43,7 @@ cd app1 && yarn install && yarn start
 cd app2 && yarn install && yarn start
 ```
 
-Inicialize o miro frontend que disponibiliza os componetes React e aplica o styleguide:
+Inicialize o micro frontend que disponibiliza os componetes React e aplica o styleguide:
 ```
 cd styleguide && yarn install && yarn start
 ```
