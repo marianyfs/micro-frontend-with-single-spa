@@ -1,10 +1,16 @@
 import React from "react";
 
-export default function Root(props) {
+import { Nav } from "@myf/styleguide";
+
+export default function Root() {
   return (
-    <section>
-      {props.name} is mounted!
-      <div id="micro-frontend-apps"></div>
-    </section>
+    <Nav>
+      <Nav.Item>
+        <Nav.Link href="/">App1</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/app2">App2</Nav.Link>
+      </Nav.Item>
+    </Nav>
   );
 }

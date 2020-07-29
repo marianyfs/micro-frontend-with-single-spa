@@ -1,21 +1,27 @@
+import {
+  constructRoutes,
+  constructApplications,
+  constructLayoutEngine,
+} from "single-spa-layout";
 import { registerApplication, start } from "single-spa";
 
-registerApplication({
-  name: "@myf/spa",
-  app: () => import("@myf/spa"),
-  activeWhen: () => true,
+const routes = constructRoutes(document.querySelector("#single-spa-layout"));
+
+const applications = constructApplications({
+  routes,
+  loadApp: ({ name }) => System.import(name),
+});
+// Delay starting the layout engine until the styleguide CSS is loaded
+const layoutEngine = constructLayoutEngine({
+  routes,
+  applications,
+  active: false,
 });
 
-registerApplication({
-  name: "@myf/app1",
-  app: () => import("@myf/app1"),
-  activeWhen: (location) => location.pathname === "/app1",
-});
+applications.forEach(registerApplication);
 
-registerApplication({
-  name: "@myf/app2",
-  app: () => import("@myf/app2"),
-  activeWhen: (location) => location.pathname === "/app2",
+System.import("@myf/styleguide").then(() => {
+  // Activate the layout engine once the styleguide CSS is loaded
+  layoutEngine.activate();
+  start();
 });
-
-start();

@@ -1,3 +1,3 @@
 import { setPublicPath } from "systemjs-webpack-interop";
 
-setPublicPath("@myf/app1");
+setPublicPath("@myf/styleguide");
