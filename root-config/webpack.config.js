@@ -32,7 +32,7 @@ module.exports = (env) => ({
       inject: false,
       template: "src/index.ejs",
       templateParameters: {
-        IS_LOCAL: env && env.IS_LOCAL === "true",
+        isLocal: env && env.isLocal === "true",
       },
     }),
     new CleanWebpackPlugin(),
