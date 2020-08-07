@@ -2,7 +2,7 @@ import "./set-public-path";
 
 import "./styles/theme.scss";
 
-export { default as ModuleError } from "./components/molecules/ModuleError";
+export { default as Button } from "./components/atoms/Button";
 
 // React Bootstrap
 
@@ -23,8 +23,6 @@ export { default as Badge } from "react-bootstrap/Badge";
 export { default as Breadcrumb } from "react-bootstrap/Breadcrumb";
 
 export { default as BreadcrumbItem } from "react-bootstrap/BreadcrumbItem";
-
-export { default as Button } from "react-bootstrap/Button";
 
 export { default as ButtonGroup } from "react-bootstrap/ButtonGroup";
 
