@@ -8,6 +8,7 @@ a biblioteca sigle-spa.
 - React https://reactjs.org/
 - React Bootstrap https://react-bootstrap.github.io/
 - SASS https://sass-lang.com/
+- Styled Components https://styled-components.com/
 
 ```
 <template id="single-spa-layout">
