@@ -3,6 +3,7 @@ module.exports = {
   transform: {
     "^.+\\.(j|t)sx?$": "babel-jest",
   },
+  transformIgnorePatterns: ["<rootDir>/node_modules/"],
   moduleNameMapper: {
     "\\.(css)$": "identity-obj-proxy",
   },
